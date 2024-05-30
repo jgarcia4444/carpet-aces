@@ -5,8 +5,8 @@ import logo from '../../media/logo/carpet-aces.png'
 const Header = () => {
 
     return (
-        <div className="flex flex-col h-full">
-            <img src={logo} className="w-3/4 mx-auto mt-20" alt="logo" />
+        <div id="/" className="flex flex-col h-full pt-20">
+            <img src={logo} className="w-3/4 mx-auto " alt="logo" />
         </div>
     )
 }
