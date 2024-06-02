@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FiMenu, FiMinusCircle } from "react-icons/fi";
 
 import carpetAces from '../../media/logo/carpet-aces.png'
@@ -6,6 +6,19 @@ import carpetAces from '../../media/logo/carpet-aces.png'
 const Navbar = () => {
 
     const [showMobileNav, setShowMobileNav] = useState(false);
+    const [showFixedNav, setShowFixedNav] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    const controlNavbar = () => {
+        if (typeof window !== 'undefined') { 
+          if (window.scrollY > 20) {
+            setShowFixedNav(true); 
+          } else if (window.scrollY < 21) { 
+            setShowFixedNav(false);  
+          }
+          setLastScrollY(window.scrollY); 
+        }
+    };
 
     const renderLinks = () => {
         const links = ['Services', 'Gallery', 'Contact']
@@ -24,20 +37,41 @@ const Navbar = () => {
         
     }
 
+    const dynamicMenuColor = showFixedNav === true ? "#fff" : "#2f3b69";
+
     const mobileNav = (
         <div className="md:hidden relative text-white">
             {showMobileNav === false ?
-                <FiMenu onClick={() => setShowMobileNav(true)} color={'#fff'} size={32} className="hover:opacity-70 hover:cursor-pointer" />
+                <FiMenu onClick={() => setShowMobileNav(true)} color={dynamicMenuColor} size={32} className="hover:opacity-70 hover:cursor-pointer" />
             :
             <div className="bg-white flex flex-col">
                 {renderLinks()}
             </div>
             }
         </div>
-    )
+    );
+
+    const navbarStyle = () => {
+        let style = "flex flex-row top-0 left-0 w-full py-2 justify-between items-center px-4";
+        if (showFixedNav === true) {
+            style += " bg-primary-blue sticky"
+        } else {
+            style += " absolute";
+        };
+        return style;
+    }
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar)
+            return () => {
+                window.removeEventListener('scroll', controlNavbar);
+            }
+        }
+    },[lastScrollY]);
 
     return (
-        <div className="flex flex-row absolute sticky top-0 left-0 w-full  bg-black py-2 bg-primary-blue  justify-between items-center px-4 ">
+        <div className={`transition-all duration-300 ${navbarStyle()}`}>
             <div className="">
                 <a href="/" className="">
                     <img src={carpetAces} className="w-16 h-16 rounded-full " alt="logo" />
