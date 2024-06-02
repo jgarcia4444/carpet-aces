@@ -5,6 +5,7 @@ import Header from './components/sections/Header';
 import FloatingContactUsButton from './components/buttons/FloatingContactUsButton';
 import Services from './components/sections/Services';
 import Gallery from './components/sections/Gallery';
+import Contact from './components/sections/Contact';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Services />
       <Gallery />
+      <Contact />
       <FloatingContactUsButton />
     </div>
   );
