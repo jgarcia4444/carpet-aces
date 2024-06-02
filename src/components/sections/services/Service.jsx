@@ -14,7 +14,7 @@ const Service = ({info}) => {
         <div className="flex flex-col justify-center">
             <img src={img} alt="" className="rounded" />
             <h3 className="text-3xl my-1 font-serif">{serviceName}</h3>
-            <div className="w-full flex flex-row no-wrap overflow-x-auto gap-12">
+            <div className="w-full flex flex-row no-wrap overflow-x-auto gap-6">
                 {renderDetails()}
             </div>
         </div>

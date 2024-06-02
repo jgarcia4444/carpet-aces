@@ -73,7 +73,7 @@ const Navbar = () => {
     return (
         <div className={`transition-all duration-300 ${navbarStyle()}`}>
             <div className="">
-                <a href="/" className="">
+                <a href="#top" className="">
                     <img src={carpetAces} className="w-16 h-16 rounded-full " alt="logo" />
                 </a>
             </div>
