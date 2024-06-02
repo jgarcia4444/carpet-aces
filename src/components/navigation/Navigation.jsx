@@ -24,7 +24,7 @@ const Navbar = () => {
         const links = ['Services', 'Gallery', 'Contact']
         return (
             <div className="bg-primary-blue absolute right-0 top-12 flex flex-col w-24 ">
-                <FiMinusCircle onClick={() => setShowMobileNav(false)} size={28} className="text-primary-blue absolute bg-white rounded-full -right-2 -top-2 hover:cursor-pointer transition-all duration-300 hover:opacity-90" />
+                <FiMinusCircle onClick={() => setShowMobileNav(false)} size={28} className="text-primary-blue absolute bg-white rounded-full -right-2 -top-2 hover:cursor-pointer transition-all duration-300 hover:opacity-90 z-10" />
                 {links.map((info, i) => {
                 return (
             <a key={`${i}-${info}`} href={`#${info.toLowerCase()}`} className="py-1 pl-2 text-white border-white border-b-2 opacity-70 transition-all duration-300 hover:opacity-100">
