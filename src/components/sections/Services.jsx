@@ -18,7 +18,7 @@ const Services = () => {
     }
 
     return (
-        <div id="services" className="pt-24 flex flex-col px-2">
+        <div id="services" className="mt-24 flex flex-col px-2">
             <SectionTitle title={"Services"} />
             <div className="flex flex-col gap-12">
                 {renderServices()}
