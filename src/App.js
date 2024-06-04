@@ -6,6 +6,7 @@ import FloatingContactUsButton from './components/buttons/FloatingContactUsButto
 import Services from './components/sections/Services';
 import Gallery from './components/sections/Gallery';
 import Contact from './components/sections/Contact';
+import Footer from './components/sections/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Services />
       <Gallery />
       <Contact />
+      <Footer />
       <FloatingContactUsButton />
     </div>
   );
